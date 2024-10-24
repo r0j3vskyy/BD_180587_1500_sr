@@ -39,5 +39,13 @@ INSERT INTO statek VALUES ('Biala Mewa', 'sredni', '2015-02-15', 5000);
 INSERT INTO statek VALUES ('Szybki Bill', 'maly', '2014-07-21', 1500);
 ALTER TABLE postac ADD COLUMN funkcja varchar(50);
 UPDATE postac SET funkcja = 'kapitan' WHERE nazwa = 'Bjorn';
-
-
+ALTER TABLE postac ADD statek_id varchar(50), ADD CONSTRAINT fk_statek_postac FOREIGN KEY (statek_id) REFERENCES statek(nazwa_statku);
+UPDATE postac SET statek_id = 'Biala Mewa' WHERE nazwa = "Bjorn";
+UPDATE postac SET statek_id = 'Biala Mewa' WHERE nazwa = "Koko";
+UPDATE postac SET statek_id = 'Biala Mewa' WHERE nazwa = "Omen";
+UPDATE postac SET statek_id = 'Biala Mewa' WHERE nazwa = "Einhar";
+UPDATE postac SET statek_id = 'Szybki Bill' WHERE nazwa = "Rambo";
+UPDATE postac SET statek_id = 'Szybki Bill' WHERE nazwa = "Pimpek";
+UPDATE postac SET statek_id = 'Szybki Bill' WHERE nazwa = "Drozd";
+DELETE FROM izba WHERE nazwa_izby = 'Spizarnia';
+DROP TABLE izba;
